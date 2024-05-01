@@ -1,0 +1,363 @@
+/*-----------------------------------*\
+  #style.css
+\*-----------------------------------*/
+
+/**
+ * copyright 2022 codewithsadee
+ */
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+  /**
+   * colors - updated to a softer and modern palette
+   */
+  --pastel-green: hsl(163, 45%, 55%);
+  --saffron: hsl(30, 96%, 50%);
+  --charcoal-gray: hsla(0, 0%, 21%, 0.9);
+  --cool-gray: hsl(0, 0%, 46%);
+  --light-gray: hsl(0, 0%, 82%);
+  --navy-blue: hsl(210, 50%, 20%);
+  --deep-black: hsl(0, 0%, 10%);
+  --sky-blue: hsl(197, 100%, 85%);
+  --ghost-white: hsl(0, 0%, 100%);
+  --almost-white: hsl(0, 0%, 96%);
+  --transparent-white: hsla(0, 0%, 100%, 0.1);
+  --night-blue: hsl(210, 15%, 25%);
+
+  /**
+   * typography - refreshed fonts
+   */
+  --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Lato", sans-serif;
+
+  --fs-1: 3.6rem;
+  --fs-2: 2.6rem;
+  --fs-3: 2.0rem;
+  --fs-4: 1.8rem;
+  --fs-5: 1.6rem;
+  --fs-6: 1.2rem;
+  --fs-7: 1.1rem;
+  --fs-8: 0.9rem;
+
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+
+  /**
+   * spacing
+   */
+  --section-padding: 50px;
+
+  /**
+   * radius
+   */
+  --radius-circle: 50%;
+  --radius-pill: 150px;
+
+  /**
+   * transition
+   */
+  --transition-1: 0.3s ease;
+  --transition-2: 0.4s ease-in-out;
+  --cubic-in: cubic-bezier(0.47, 0, 0.75, 0.72);
+  --cubic-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --cubic-anim: cubic-bezier(0.50, 0, 0.25, 1);
+}
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+img,
+span,
+time,
+data,
+input,
+button,
+ion-icon {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+}
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+}
+
+input {
+  width: 100%;
+}
+
+input::-webkit-search-cancel-button {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+ion-icon {
+  pointer-events: none;
+}
+
+html {
+  font-family: var(--ff-primary);
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--deep-black);
+  color: var(--ghost-white);
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+:focus-visible {
+  outline-offset: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--almost-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--cool-gray);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--light-gray);
+}
+
+/*-----------------------------------*\
+  #REUSED STYLE - Updated
+\*-----------------------------------*/
+
+.container {
+  padding-inline: 15px;
+}
+
+.section {
+  padding-block: var(--section-padding);
+}
+
+.has-bg-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.h1, .h2, .h3 {
+  font-family: var(--primary-font);
+  font-weight: var(--fw-medium);
+  line-height: 1.25;
+}
+
+.h1 {
+  font-size: var(--fs-xlarge);
+}
+
+.h2 {
+  font-size: var(--fs-large);
+}
+
+.h3 {
+  font-size: var(--fs-xsmall);
+}
+
+.has-before, .has-after {
+  position: relative;
+  z-index: 1;
+}
+
+.has-before::before, .has-after::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+
+.btn {
+  font-size: var(--fs-xxsmall);
+  font-weight: var(--fw-medium);
+  max-width: max-content;
+  border: 1px solid var(--white);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 30px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-fast);
+}
+
+.btn ion-icon {
+  font-size: 16px;
+}
+
+.btn:is(:hover, :focus) {
+  background-color: var(--soft-green);
+  border-color: var(--soft-green);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.grid-list {
+  display: grid;
+  gap: 20px;
+}
+
+.section-title, .section-text {
+  text-align: center;
+}
+
+.section-text {
+  font-size: var(--fs-xsmall);
+}
+
+.img-holder {
+  aspect-ratio: var(--width) / var(--height);
+  overflow: hidden;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card {
+  position: relative;
+  border: 1px solid var(--transparent-white);
+}
+
+.product-card .card-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: var(--soft-green);
+  color: var(--black);
+  font-size: var(--fs-min);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.product-card .card-banner {
+  position: relative;
+}
+
+.product-card .card-action {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 15px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-slow);
+  opacity: 0;
+}
+
+.product-card:is(:hover, :focus) .card-action {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.product-card .action-btn {
+  font-size: 18px;
+  transition: var(--transition-fast);
+}
+
+.product-card :is(.action-btn, .card-title):is(:hover, :focus) {
+  color: var(--soft-green);
+}
+
+.product-card .card-content {
+  padding: 10px;
+}
+
+.product-card .h3 {
+  font-weight: var(--fw-light);
+}
+
+.product-card .card-title {
+  font-family: var(--primary-font);
+  transition: var(--transition-fast);
+}
+
+.product-card .card-price {
+  color: var(--soft-green);
+  margin-block: 10px 5px;
+}
+
+.product-card .rating-wrapper {
+  display: flex;
+  gap: 5px;
+  color: var(--soft-orange);
+}
+
+.product-card .rating-wrapper ion-icon {
+  --ionicon-stroke-width: 45px;
+}
+
+.has-scrollbar {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: inline mandatory;
+  padding-block-end: 20px;
+  margin-block-end: -20px;
+}
+
+.has-scrollbar::-webkit-scrollbar {
+  height: 10px;
+}
+
+.has-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: 1px solid var(--white);
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--white);
+}
+
+.has-scrollbar::-webkit-scrollbar-button {
+  width: 10%;
+}
